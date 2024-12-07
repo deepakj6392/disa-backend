@@ -1,4 +1,4 @@
-import { CONSTANTS } from "../../config/config";
+import { CONSTANTS } from "../../config/configuration";
 
 const Sequelize = require("sequelize");
 const sequelize = new Sequelize(CONSTANTS.DB, CONSTANTS.USER, CONSTANTS.PASSWORD, {

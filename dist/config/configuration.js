@@ -21,4 +21,4 @@ exports.CONSTANTS = {
     },
     SECRET: '3e804e1f2376186a534a2cdb226f302161522748f28fa1f2e7076dd501596892',
 };
-//# sourceMappingURL=config.js.map
+//# sourceMappingURL=configuration.js.map

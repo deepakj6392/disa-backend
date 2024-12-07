@@ -2,7 +2,7 @@ import { ADMIN_USER } from "../../constants";
 import db from "../../models";
 import User from "../../models/user.model";
 import { Utilities } from "../../utils/Utilities";
-import { CONSTANTS } from './../../../config/config';
+import { CONSTANTS } from '../../../config/configuration';
 const Op = db.Sequelize.Op;
 
 export const createUser = async (req: any, next: any) => {

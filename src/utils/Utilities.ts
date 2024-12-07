@@ -5,7 +5,7 @@ import { HTTP400Error, HTTP404Error, HTTP403Error } from "./httpErrors";
 import { invalidTokenError } from "./ErrorHandler";
 import mongoose from "mongoose";
 import { PERMISSION_TYPE } from "../constants";
-import { CONSTANTS } from "../../config/config";
+import { CONSTANTS } from "../../config/configuration";
 
 export class Utilities {
 

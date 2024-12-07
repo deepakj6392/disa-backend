@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import { checkAuthenticate } from "../../middleware/checks";
 import { validate, validateLogin } from "./middleware/check";
 import { createUser, deleteById, findAllUsers, getUserById, loginUser, updateById } from "./controller";
-import { CONSTANTS } from "../../../config/config";
+import { CONSTANTS } from "../../../config/configuration";
 const basePath = CONSTANTS.BASE_PATH;
 const currentPath = "user/";
 const currentPathURL = basePath + currentPath;

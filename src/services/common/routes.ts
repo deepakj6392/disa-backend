@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { fileUpload } from "./controller";
-import { CONSTANTS } from "../../../config/config";
+import { CONSTANTS } from "../../../config/configuration";
 
 const basePath = CONSTANTS.BASE_PATH;
 const currentPath = "common/";

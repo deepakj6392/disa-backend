@@ -12,8 +12,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const checks_1 = require("../../middleware/checks");
 const check_1 = require("./middleware/check");
 const controller_1 = require("./controller");
-const config_1 = require("../../../config/config");
-const basePath = config_1.CONSTANTS.BASE_PATH;
+const configuration_1 = require("../../../config/configuration");
+const basePath = configuration_1.CONSTANTS.BASE_PATH;
 const currentPath = "user/";
 const currentPathURL = basePath + currentPath;
 exports.default = [

@@ -39,7 +39,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Utilities = void 0;
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const bcrypt = __importStar(require("bcrypt"));
-const config_1 = require("../../config/config");
+const configuration_1 = require("../../config/configuration");
 class Utilities {
     /**
      * Return response in custom format
@@ -91,7 +91,7 @@ class Utilities {
             session: user.tokenKey,
             uid: user.uid,
         };
-        return jsonwebtoken_1.default.sign(claims, config_1.CONSTANTS.SECRET || '', {
+        return jsonwebtoken_1.default.sign(claims, configuration_1.CONSTANTS.SECRET || '', {
             expiresIn: '2hr'
         });
     }
@@ -104,7 +104,7 @@ _a = Utilities;
  */
 Utilities.cryptPassword = (password) => __awaiter(void 0, void 0, void 0, function* () {
     return new Promise(function (resolve, reject) {
-        return bcrypt.hash(password, config_1.CONSTANTS.SALT, (err, hash) => {
+        return bcrypt.hash(password, configuration_1.CONSTANTS.SALT, (err, hash) => {
             if (err) {
                 return reject(err);
             }
@@ -136,7 +136,7 @@ Utilities.VerifyPassword = (password, hash) => __awaiter(void 0, void 0, void 0,
  * @param {string} token - return token
  */
 Utilities.createJWTToken = (payload) => __awaiter(void 0, void 0, void 0, function* () {
-    return jsonwebtoken_1.default.sign(payload, config_1.CONSTANTS.SECRET || '', { expiresIn: '24h' });
+    return jsonwebtoken_1.default.sign(payload, configuration_1.CONSTANTS.SECRET || '', { expiresIn: '24h' });
 });
 /**
  * Verify token is valid or not
@@ -144,7 +144,7 @@ Utilities.createJWTToken = (payload) => __awaiter(void 0, void 0, void 0, functi
  */
 Utilities.verifyToken = (token) => __awaiter(void 0, void 0, void 0, function* () {
     return new Promise(function (resolve, reject) {
-        jsonwebtoken_1.default.verify(token, config_1.CONSTANTS.SECRET, function (error, result) {
+        jsonwebtoken_1.default.verify(token, configuration_1.CONSTANTS.SECRET, function (error, result) {
             return __awaiter(this, void 0, void 0, function* () {
                 if (error) {
                     return reject(error);
@@ -158,7 +158,7 @@ Utilities.verifyToken = (token) => __awaiter(void 0, void 0, void 0, function* (
 });
 Utilities.commonVerifyToken = (token) => __awaiter(void 0, void 0, void 0, function* () {
     return new Promise(function (resolve, reject) {
-        jsonwebtoken_1.default.verify(token, config_1.CONSTANTS.SECRET, function (error, result) {
+        jsonwebtoken_1.default.verify(token, configuration_1.CONSTANTS.SECRET, function (error, result) {
             return __awaiter(this, void 0, void 0, function* () {
                 if (error) {
                     return reject(error);
