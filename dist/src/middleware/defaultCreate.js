@@ -10,7 +10,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.defaultCreates = void 0;
+const controller_1 = require("../services/question/controller");
+const controller_2 = require("../services/user/controller");
 const defaultCreates = () => __awaiter(void 0, void 0, void 0, function* () {
+    yield Promise.all([(0, controller_2.createDefaultUsers)(), (0, controller_1.createDefaultQuestions)()]);
 });
 exports.defaultCreates = defaultCreates;
 //# sourceMappingURL=defaultCreate.js.map

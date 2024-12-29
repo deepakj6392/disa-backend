@@ -157,12 +157,12 @@ exports.deleteById = deleteById;
 const createDefaultUsers = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const data = yield user_model_1.default.findOne({ where: { userId: 1 } });
-        let users = constants_1.ADMIN_USER;
-        for (let user of users) {
-            user.password = yield Utilities_1.Utilities.cryptPassword(user.password);
-            user.lastLogin = Date.now();
-        }
         if (!data) {
+            let users = constants_1.ADMIN_USER;
+            for (let user of users) {
+                user.password = yield Utilities_1.Utilities.cryptPassword(user.password);
+                user.lastLogin = Date.now();
+            }
             users = yield user_model_1.default.bulkCreate(users);
             console.log('default users created');
         }

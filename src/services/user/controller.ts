@@ -52,7 +52,7 @@ export const loginUser = async (req: any, next: any) => {
     if (!isValidPass)
       return "Incorrect Password";
 
-    const token =await Utilities.createJWTToken({ username, id: data?.userId, isAdmin: data?.isAdmin, email: data.email });
+    const token = await Utilities.createJWTToken({ username, id: data?.userId, isAdmin: data?.isAdmin, email: data.email });
     await User.update({ lastLogin: Date.now() }, {
       where: {
         username
@@ -144,12 +144,12 @@ export const deleteById = async (req: any, next: any) => {
 export const createDefaultUsers = async () => {
   try {
     const data = await User.findOne({ where: { userId: 1 } });
-    let users: any[] = ADMIN_USER;
-    for (let user of users) {
-      user.password = await Utilities.cryptPassword(user.password);
-      user.lastLogin = Date.now()
-    }
     if (!data) {
+      let users: any[] = ADMIN_USER;
+      for (let user of users) {
+        user.password = await Utilities.cryptPassword(user.password);
+        user.lastLogin = Date.now()
+      }
       users = await User.bulkCreate(users);
       console.log('default users created')
     }

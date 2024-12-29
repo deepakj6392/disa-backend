@@ -17,7 +17,19 @@ require("./connection/connection");
 const router = (0, express_1.default)();
 router.set('views', path_1.default.join(__dirname, 'views'));
 router.set("view engine", "ejs");
-const upload = (0, multer_1.default)({ dest: "temp/" });
+const upload = (0, multer_1.default)({
+    storage: multer_1.default.diskStorage({
+        destination: (req, file, cb) => {
+            cb(null, "temp/");
+        },
+        filename: (req, file, cb) => {
+            let customFileName = Date.now();
+            // get file extension from original file name
+            let fileExtension = path_1.default.extname(file.originalname).split('.')[1];
+            cb(null, customFileName + '.' + fileExtension);
+        }
+    })
+});
 router.use(upload.any());
 (0, utils_1.applyMiddleware)(middleware_1.default, router);
 (0, utils_1.applyRoutes)(services_1.default, router);

@@ -7,11 +7,11 @@ export const SUPER_ADMIN = "sadmin";
 export const ADMIN_ROLES = ['sadmin', 'admin'];
 
 export const ADMIN_USER=   [ {
-    firstName: "india",
-    lastName: "renaissance",
-    email: "renaissance@india.com",
-    password: "Rindia@123",
-    username: "renaissance123",
+    firstName: "disa",
+    lastName: "store",
+    email: "disa@store.com",
+    password: "Disa@123",
+    username: "disa123",
     mobile: "1234567890",
     isAdmin: true
 }]

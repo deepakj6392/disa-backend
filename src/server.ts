@@ -14,9 +14,19 @@ const router = express();
 
 router.set('views', path.join(__dirname, 'views'));
 router.set("view engine", "ejs");
-
-
-const upload: any = multer({ dest: "temp/" });
+const upload = multer({
+  storage: multer.diskStorage({
+      destination: (req, file, cb) => {
+          cb(null, "temp/")
+      },
+      filename: (req, file, cb) => {
+          let customFileName =Date.now();
+          // get file extension from original file name
+          let fileExtension = path.extname(file.originalname).split('.')[1];
+          cb(null, customFileName + '.' + fileExtension)
+      }
+    })
+  })
 router.use(upload.any());
 
 applyMiddleware(middleware, router);
