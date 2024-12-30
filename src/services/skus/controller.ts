@@ -1,3 +1,4 @@
+import { DEFAULT_SKUS } from "../../constants/default";
 import db from "../../models";
 import Product from "../../models/product.model";
 import SkuModel from './../../models/sku.model';
@@ -5,7 +6,7 @@ const Op = db.Sequelize.Op;
 
 export const createSKU = async (req: any, next: any) => {
   try {
-    const { skuName, productId, skuGrammage,skuFullName,skuImage,skuCategory } = req.body;
+    const { skuName, productId, skuGrammage,skuFullName,skuImage } = req.body;
     const checkBrand = await SkuModel.findOne({
       where: {
         skuName, productId
@@ -15,7 +16,7 @@ export const createSKU = async (req: any, next: any) => {
       return "SKU already exists";
     }
     const brand = {
-      skuName, productId, skuGrammage,skuFullName,skuImage,skuCategory
+      skuName, productId, skuGrammage,skuFullName,skuImage
     };
     const data = await SkuModel.create(brand);
     await data.save();
@@ -61,9 +62,9 @@ export const getSKUById = async (req: any, next: any) => {
 export const updateSKUById = async (req: any, next: any) => {
   try {
     const id = req.params.id;
-    const { skuName, productId, skuGrammage,skuFullName,skuImage,skuCategory } = req.body
+    const { skuName, productId, skuGrammage,skuFullName,skuImage } = req.body
     let payload: any = {
-      skuName, productId, skuGrammage,skuFullName,skuImage,skuCategory
+      skuName, productId, skuGrammage,skuFullName,skuImage
     }
 
     const num = await SkuModel.update(payload, {
@@ -101,3 +102,15 @@ export const deleteSKUById = async (req: any, next: any) => {
     next(error);
   }
 };
+
+export const createDefaultSKUS= async()=>{
+  try {
+    const sku= await SkuModel.findOne({where: { skuId: 1 }});
+    if(!sku){
+      await SkuModel.bulkCreate(DEFAULT_SKUS);
+      console.log("Default skus created successfully!")
+    }
+  } catch (error) {
+    console.log(`default skus create failed: ${error}`)
+  }
+}

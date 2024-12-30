@@ -1,3 +1,4 @@
+import { DEFAULT_PRODUCT } from "../../constants/default";
 import db from "../../models";
 import Product from "../../models/product.model";
 const Op = db.Sequelize.Op;
@@ -101,3 +102,15 @@ export const deleteProductById = async (req: any, next: any) => {
     next(error);
   }
 };
+
+export const createDefaultProducts= async()=>{
+  try {
+    const product= await Product.findOne({where: { productId: 1 }});
+    if(!product){
+      await Product.bulkCreate(DEFAULT_PRODUCT);
+      console.log("Default products created successfully!")
+    }
+  } catch (error) {
+    console.log(`default products create failed: ${error}`)
+  }
+}

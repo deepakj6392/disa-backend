@@ -1,3 +1,4 @@
+import { DEFAULT_STORE_FORMAT } from "../../constants/default";
 import db from "../../models";
 import StoreFormat from "../../models/store-format.model";
 const Op = db.Sequelize.Op;
@@ -100,3 +101,15 @@ export const deleteStoreFormatById = async (req: any, next: any) => {
     next(error);
   }
 };
+
+export const createDefaultStoreFormat= async()=>{
+  try {
+    const store= await StoreFormat.findOne({where: { storeFormatId: 1 }});
+    if(!store){
+      await StoreFormat.bulkCreate(DEFAULT_STORE_FORMAT);
+      console.log("Default store formats created successfully!")
+    }
+  } catch (error) {
+    console.log(`default store formats create failed: ${error}`)
+  }
+}

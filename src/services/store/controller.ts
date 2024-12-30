@@ -1,3 +1,4 @@
+import { DEFAULT_STORES } from "../../constants/default";
 import db from "../../models";
 import Store from './../../models/store.model';
 const Op = db.Sequelize.Op;
@@ -101,3 +102,15 @@ export const deleteStoreById = async (req: any, next: any) => {
     next(error);
   }
 };
+
+export const createDefaultStores= async()=>{
+  try {
+    const store= await Store.findOne({where: { storeId: 1 }});
+    if(!store){
+      await Store.bulkCreate(DEFAULT_STORES);
+      console.log("Default stores created successfully!")
+    }
+  } catch (error) {
+    console.log(`default stores create failed: ${error}`)
+  }
+}

@@ -1,3 +1,4 @@
+import { DEFAULT_RETAIL_CHAIN } from "../../constants/default";
 import db from "../../models";
 import RetailChain from "../../models/retail-chain.model";
 const Op = db.Sequelize.Op;
@@ -100,3 +101,15 @@ export const deleteRetailChainById = async (req: any, next: any) => {
     next(error);
   }
 };
+
+export const createDefaultRetailChain= async()=>{
+  try {
+    const chain= await RetailChain.findOne({where: { retailChainId: 1 }});
+    if(!chain){
+      await RetailChain.bulkCreate(DEFAULT_RETAIL_CHAIN);
+      console.log("Default chain created successfully!")
+    }
+  } catch (error) {
+    console.log(`default chain create failed: ${error}`)
+  }
+}

@@ -12,7 +12,7 @@ export default [
     path: currentPathURL + "create",
     method: "post",
     handler: [
-      // validate,
+      validate,
       async (req: Request, res: Response, next: NextFunction) => {
         const result = await createSKU( req, next);
         res.status(200).send(result);

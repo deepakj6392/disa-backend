@@ -6,9 +6,17 @@ import { errorMessageHander } from "../../../utils/ErrorHandler";
 
 export const validate = (req: Request, res: Response, next: NextFunction) => {
   const schema = Joi.object({
-    brandName: Joi.string().trim(true).required().messages({
-      "string.empty": "Brand Name can not be empty",
-    })
+    productId: Joi.number().required(),
+    skuName: Joi.string().trim(true).required().messages({
+      "string.empty": "SKU Name can not be empty",
+    }),
+    skuGrammage: Joi.string().trim(true).required().messages({
+      "string.empty": "SKU Grammage can not be empty",
+    }),
+    skuFullName: Joi.string().trim(true).required().messages({
+      "string.empty": "SKU Fullname can not be empty",
+    }),
+    skuImage: Joi.string().trim(true)
   });
   const { error, value } = schema.validate(req.body, {
     abortEarly: false,

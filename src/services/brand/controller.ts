@@ -1,3 +1,4 @@
+import { DEFAULT_BRAND } from "../../constants/default";
 import db from "../../models";
 import Brand from "../../models/brand.model";
 const Op = db.Sequelize.Op;
@@ -108,3 +109,15 @@ export const deleteBrandById = async (req: any, next: any) => {
     next(error);
   }
 };
+
+export const createDefaultBrands= async()=>{
+  try {
+    const brand= await Brand.findOne({where: { brandId: 1 }});
+    if(!brand){
+      await Brand.bulkCreate(DEFAULT_BRAND);
+      console.log("Default brands created successfully!")
+    }
+  } catch (error) {
+    console.log(`default brands create failed: ${error}`)
+  }
+}

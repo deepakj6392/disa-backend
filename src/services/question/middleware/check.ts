@@ -15,24 +15,17 @@ export const validate = (req: Request, res: Response, next: NextFunction) => {
     questionChildCategory: Joi.string().trim(true).required().messages({
       "string.empty": "Child Category can not be empty",
     }),
-    longQuestion: Joi.string().trim(true).required().messages({
-      "string.empty": "Long question can not be empty",
+    description: Joi.string().trim(true).required().messages({
+      "string.empty": "Description can not be empty",
     }),
-    shortQuestion: Joi.string().trim(true).required().messages({
-      "string.empty": "Short question can not be empty",
-    }),
+    questionHint: Joi.string().trim(true),
     screenType: Joi.string().trim(true).required().messages({
       "string.empty": "Screen type can not be empty",
     }),
-    usedForDeviation: Joi.bool().required().messages({
-      "bool.empty": "Deviation can not be empty",
+    responseType: Joi.string().required().messages({
+      "string.empty": "Response Type not be empty",
     }),
-    skuSpecific: Joi.string().trim(true).required().messages({
-      "string.empty": "SKU specific can not be empty",
-    }),
-    storeDisplayLocation: Joi.string().trim(true).required().messages({
-      "string.empty": "Store display location can not be empty",
-    })
+    placeArea: Joi.string()
   });
   const { error, value } = schema.validate(req.body, {
     abortEarly: false,

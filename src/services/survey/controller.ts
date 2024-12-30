@@ -1,3 +1,4 @@
+import { DEFAULT_SURVEY } from "../../constants/default";
 import db from "../../models";
 import Brand from "../../models/brand.model";
 import Survey from './../../models/survey.model';
@@ -95,3 +96,15 @@ export const deleteSurveyById = async (req: any, next: any) => {
     next(error);
   }
 };
+
+export const createDefaultSurveys= async()=>{
+  try {
+    const survey= await Survey.findOne({where: { surveyId: 1 }});
+    if(!survey){
+      await Survey.bulkCreate(DEFAULT_SURVEY);
+      console.log("Default survey created successfully!")
+    }
+  } catch (error) {
+    console.log(`default survey create failed: ${error}`)
+  }
+}
