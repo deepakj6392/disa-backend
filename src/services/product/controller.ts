@@ -5,7 +5,7 @@ const Op = db.Sequelize.Op;
 
 export const createProduct = async (req: any, next: any) => {
   try {
-    const { productName } = req.body;
+    const { productName,productCategory } = req.body;
 
     const checkBrand = await Product.findOne({
       where: {
@@ -16,7 +16,8 @@ export const createProduct = async (req: any, next: any) => {
       return "Product already exists";
     }
     const brand = {
-      productName
+      productName,
+      productCategory
     };
     const data = await Product.create(brand);
     await data.save();
@@ -62,9 +63,10 @@ export const getProductById = async (req: any, next: any) => {
 export const updateProductById = async (req: any, next: any) => {
   try {
     const id = req.params.id;
-    const { productName } = req.body
+    const { productName,productCategory } = req.body
     let payload: any = {
-      productName
+      productName,
+      productCategory
     }
 
     const num = await Product.update(payload, {

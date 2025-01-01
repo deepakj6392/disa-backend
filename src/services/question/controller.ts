@@ -6,11 +6,13 @@ const Op = db.Sequelize.Op;
 export const createQuestion = async (req: any, next: any) => {
   try {
     const { questionCategory,questionSubCategory,questionChildCategory,
-      description, questionHint,screenType,responseType,placeArea
+      description, questionHint,screenType,responseType,storeDisplayLocation,
+      usedForDeviation, skuSpecific
      } = req.body;
     const survey = {
       questionCategory,questionSubCategory,questionChildCategory,
-      description,screenType,responseType,placeArea,questionHint
+      description,screenType,responseType,storeDisplayLocation,questionHint,
+      usedForDeviation, skuSpecific
     };
     const data = await QuestionMaster.create(survey);
     await data.save();
@@ -57,10 +59,12 @@ export const updateQuestionById = async (req: any, next: any) => {
   try {
     const id = req.params.id;
     const { questionCategory,questionSubCategory,questionChildCategory,
-      description,screenType,responseType,questionHint,placeArea } = req.body
+      description,screenType,responseType,questionHint,storeDisplayLocation ,
+      usedForDeviation, skuSpecific} = req.body
     let payload: any = {
       questionCategory,questionSubCategory,questionChildCategory,
-      description,screenType,responseType,questionHint,placeArea
+      description,screenType,responseType,questionHint,storeDisplayLocation,
+      usedForDeviation, skuSpecific
     }
 
     const num = await QuestionMaster.update(payload, {

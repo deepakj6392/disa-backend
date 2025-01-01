@@ -8,6 +8,9 @@ export const validate = (req: Request, res: Response, next: NextFunction) => {
   const schema = Joi.object({
     productName: Joi.string().trim(true).required().messages({
       "string.empty": "Product Name can not be empty",
+    }),
+    productCategory: Joi.string().trim(true).required().messages({
+      "string.empty": "Product category can not be empty",
     })
   });
   const { error, value } = schema.validate(req.body, {

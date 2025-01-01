@@ -13,7 +13,8 @@ export const DEFAULT_SURVEY = [
 ];
 export const DEFAULT_PRODUCT = [
     {
-        productName: "Skin Firming Body Lotion"
+        productName: "Skin Firming Body Lotion",
+        productCategory:"Skin Care"
     }
 ];
 export const DEFAULT_RETAIL_CHAIN = [
@@ -463,7 +464,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "display section",
         description: "What is the name of the section (as displayed in the store) where the below products are placed?",
         screenType: "meter-image",
-        responseType: "free text"
+        usedForDeviation: "no",
+        skuSpecific: "no",
+        responseType: "free text",
+        storeDisplayLocation:"primary"
     },
     {
         _id: 2,
@@ -471,9 +475,12 @@ export const DEFAULT_QUESTIONS = [
         questionSubCategory: "instore information",
         questionChildCategory: "Overall category size",
         description: "Let's measure the size of the <strong>SKINCARE</strong> category in this store.",
-        questionHint:"Measuring tape should be used for the measurements",
+        questionHint: "Measuring tape should be used for the measurements",
         screenType: "meter",
-        responseType: "number"
+        usedForDeviation: "no",
+        skuSpecific: "no",
+        responseType: "number",
+        storeDisplayLocation:"primary"
     },
     {
         _id: 3,
@@ -481,9 +488,12 @@ export const DEFAULT_QUESTIONS = [
         questionSubCategory: "instore information",
         questionChildCategory: "Display alloted",
         description: "Great, Now let's measure the shelf space allocated to the products shown below",
-        questionHint:"Measuring tape should be used for the measurements",
+        questionHint: "Measuring tape should be used for the measurements",
         screenType: "meter-image-second",
-        responseType: "number"
+        usedForDeviation: "no",
+        skuSpecific: "no",
+        responseType: "number",
+        storeDisplayLocation:"primary"
     },
     {
         _id: 4,
@@ -492,7 +502,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "Shelf Availability",
         description: "Is the SKU <strong>Skin Firming Nourishing Hydration 400 ML Body Lotion</strong>, shown in the image below, available on the shelf?",
         screenType: "single-question-yes-no",
-        responseType: ""
+        usedForDeviation: "no",
+        skuSpecific: "no",
+        responseType: "yes/no",
+        storeDisplayLocation:"primary"
     },
     {
         _id: 5,
@@ -500,9 +513,12 @@ export const DEFAULT_QUESTIONS = [
         questionSubCategory: "Primary Planogram",
         questionChildCategory: "Primary SKU Facings",
         description: "How many facings of <strong>Skin Firming Nourishing Hydration 400 ML Body Lotion</strong> are kept on the shelf?",
-        questionHint:"Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
+        questionHint: "Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
         screenType: "meter-count",
-        responseType: "number"
+        usedForDeviation: "no",
+        skuSpecific: "no",
+        responseType: "number",
+        storeDisplayLocation:"primary"
     },
     {
         _id: 6,
@@ -510,9 +526,12 @@ export const DEFAULT_QUESTIONS = [
         questionSubCategory: "Primary Planogram",
         questionChildCategory: "Primary SKU Display",
         description: "How many facings of <strong>Skin Firming Nourishing Hydration 400 ML Body Lotion</strong> are kept on the shelf in front of you that you can reach out without bending with straight hand to pick?",
-        questionHint:"Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
+        questionHint: "Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
         screenType: "meter-count",
-        responseType: "number"
+        usedForDeviation: "no",
+        skuSpecific: "no",
+        responseType: "number",
+        storeDisplayLocation:"primary"
     },
     {
         _id: 7,
@@ -520,9 +539,12 @@ export const DEFAULT_QUESTIONS = [
         questionSubCategory: "Primary Planogram",
         questionChildCategory: "SKU Unplanned Planogram",
         description: "How many facings of <strong>Skin Firming Nourishing Hydration 400 ML Body Lotion</strong> are kept on other shelves for which you have to either bend or raise your hand to pick?",
-        questionHint:"Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
+        questionHint: "Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
         screenType: "meter-count",
-        responseType: "number"
+        usedForDeviation: "no",
+        skuSpecific: "no",
+        responseType: "number",
+        storeDisplayLocation:"primary"
     },
     {
         _id: 8,
@@ -531,7 +553,9 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "Shelf Availability",
         description: "Is the SKU <strong>Skin Firming Sheer Hydration 400 ML Body Lotion</strong>, shown in the image below, available on the shelf?",
         screenType: "single-question-yes-no",
-        responseType: ""
+        usedForDeviation: "no",
+        skuSpecific: "no",
+        responseType: "yes/no"
     },
     {
         _id: 9,
@@ -539,9 +563,12 @@ export const DEFAULT_QUESTIONS = [
         questionSubCategory: "Primary Planogram",
         questionChildCategory: "Primary SKU Facings",
         description: "How many facings of <strong>Skin Firming Sheer Hydration 400 ML Body Lotion</strong> are kept on the shelf?",
-        questionHint:"Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
+        questionHint: "Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
         screenType: "meter-count",
-        responseType: "number"
+        usedForDeviation: "no",
+        skuSpecific: "no",
+        responseType: "number",
+        storeDisplayLocation:"primary"
     },
     {
         _id: 10,
@@ -549,9 +576,12 @@ export const DEFAULT_QUESTIONS = [
         questionSubCategory: "Primary Planogram",
         questionChildCategory: "Primary SKU Display",
         description: "How many facings of <strong>Skin Firming Sheer Hydration 400 ML Body Lotion</strong> are kept on the shelf in front of you that you can reach out without bending with straight hand to pick?",
-        questionHint:"Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
+        questionHint: "Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
         screenType: "meter-count",
-        responseType: "number"
+        usedForDeviation: "no",
+        skuSpecific: "no",
+        responseType: "number",
+        storeDisplayLocation:"primary"
     },
     {
         _id: 11,
@@ -559,9 +589,12 @@ export const DEFAULT_QUESTIONS = [
         questionSubCategory: "Primary Planogram",
         questionChildCategory: "SKU Unplanned Planogram",
         description: "How many facings of <strong>Skin Firming Sheer Hydration 400 ML Body Lotion</strong> are kept on other shelves for which you have to either bend or raise your hand to pick?",
-        questionHint:"Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
+        questionHint: "Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
         screenType: "meter-count",
-        responseType: "number"
+        usedForDeviation: "no",
+        skuSpecific: "no",
+        responseType: "number",
+        storeDisplayLocation:"primary"
     },
     {
         _id: 12,
@@ -570,7 +603,9 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "Shelf Availability",
         description: "Is the SKU <strong>Skin Firming Melanin Beauty and Hydration 400 ML Body Lotion</strong>, shown in the image below, available on the shelf?",
         screenType: "single-question-yes-no",
-        responseType: ""
+        usedForDeviation: "no",
+        skuSpecific: "no",
+        responseType: "yes/no"
     },
     {
         _id: 13,
@@ -578,9 +613,12 @@ export const DEFAULT_QUESTIONS = [
         questionSubCategory: "Primary Planogram",
         questionChildCategory: "Primary SKU Facings",
         description: "How many facings of <strong>Skin Firming Melanin Beauty and Hydration 400 ML Body Lotion</strong> are kept on the shelf?",
-        questionHint:"Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
+        questionHint: "Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
         screenType: "meter-count",
-        responseType: "number"
+        usedForDeviation: "no",
+        skuSpecific: "no",
+        responseType: "number",
+        storeDisplayLocation:"primary"
     },
     {
         _id: 14,
@@ -588,9 +626,12 @@ export const DEFAULT_QUESTIONS = [
         questionSubCategory: "Primary Planogram",
         questionChildCategory: "Primary SKU Display",
         description: "How many facings of <strong>Skin Firming Melanin Beauty and Hydration 400 ML Body Lotion</strong> are kept on the shelf in front of you that you can reach out without bending with straight hand to pick?",
-        questionHint:"Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
+        questionHint: "Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
         screenType: "meter-count",
-        responseType: "number"
+        usedForDeviation: "no",
+        skuSpecific: "no",
+        responseType: "number",
+        storeDisplayLocation:"primary"
     },
     {
         _id: 15,
@@ -598,9 +639,12 @@ export const DEFAULT_QUESTIONS = [
         questionSubCategory: "Primary Planogram",
         questionChildCategory: "SKU Unplanned Planogram",
         description: "How many facings of <strong>Skin Firming Melanin Beauty and Hydration 400 ML Body Lotion</strong> are kept on other shelves for which you have to either bend or raise your hand to pick?",
-        questionHint:"Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
+        questionHint: "Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
         screenType: "meter-count",
-        responseType: "number"
+        usedForDeviation: "no",
+        skuSpecific: "no",
+        responseType: "number",
+        storeDisplayLocation:"primary"
     },
     {
         _id: 16,
@@ -609,7 +653,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "Wobbler",
         description: "Do you see a <strong>Wobbler</strong> displayed on the shelves in front of you?",
         screenType: "single-question-yes-no",
-        responseType: "yes/no"
+        usedForDeviation: "no",
+        skuSpecific: "no",
+        responseType: "yes/no",
+        storeDisplayLocation:"primary"
     },
     {
         _id: 17,
@@ -618,7 +665,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "Shelf Separator",
         description: "Do you see a <strong>Shelf Separator</strong> displayed on the shelves in front of you?",
         screenType: "single-question-yes-no",
-        responseType: "yes/no"
+        usedForDeviation: "no",
+        skuSpecific: "no",
+        responseType: "yes/no",
+        storeDisplayLocation:"primary"
     },
     {
         _id: 18,
@@ -627,7 +677,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "Shelf Strip",
         description: "Do you see a <strong>Shelf Strip</strong> displayed on the shelves in front of you?",
         screenType: "single-question-yes-no",
-        responseType: "yes/no"
+        usedForDeviation: "no",
+        skuSpecific: "no",
+        responseType: "yes/no",
+        storeDisplayLocation:"primary"
     },
     {
         _id: 19,
@@ -636,7 +689,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "General Information",
         description: "Great JOB !!!<br/>Let's now proceed with the next survey section.",
         screenType: "question-info",
-        responseType: ""
+        usedForDeviation: "no",
+        skuSpecific: "no",
+        responseType: "yes/no",
+        storeDisplayLocation:"primary"
     },
     {
         _id: 20,
@@ -645,7 +701,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "Gondola Count",
         description: "Pls walk around various sections and proceed once you have seen any of sections displayed in the below images.",
         screenType: "gondola-fsu-selection",
-        responseType: ""
+        usedForDeviation: "no",
+        skuSpecific: "no",
+        responseType: "yes/no",
+        storeDisplayLocation:"primary"
     },
     {
         _id: 21,
@@ -654,8 +713,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "General Information",
         description: "OK,<br/>Let's start with the survey of <strong>Gondola End</strong>.",
         screenType: "question-info",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "selection",
-        placeArea: "gondola",
+        storeDisplayLocation: "gondola",
     },
     {
         _id: 22,
@@ -664,8 +725,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "Gondola Location",
         description: "Please provide the name of section where this <strong>Gondola End</strong> is kept in the store.",
         screenType: "meter-image",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "free text",
-        placeArea: "gondola",
+        storeDisplayLocation: "gondola",
     },
     {
         _id: 23,
@@ -674,8 +737,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "Gondola Branding",
         description: "Is the branding on the <strong>Gondola</strong> same as the one displayed in the below picture?",
         screenType: "single-question-yes-no",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "yes/no",
-        placeArea: "gondola",
+        storeDisplayLocation: "gondola",
     },
     {
         _id: 24,
@@ -684,8 +749,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "Gondola SKU Availability",
         description: "Is the SKU <strong>Skin Firming Nourishing Hydration 400 ML Body Lotion</strong>, as shown in the image below, available on the Gondola End?",
         screenType: "single-question-yes-no",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "yes/no",
-        placeArea: "gondola",
+        storeDisplayLocation: "gondola",
     },
     {
         _id: 25,
@@ -693,10 +760,12 @@ export const DEFAULT_QUESTIONS = [
         questionSubCategory: "Gondola Planogram",
         questionChildCategory: "Gondola SKU Facings",
         description: "How many facings of <strong>Skin Firming Nourishing Hydration 400 ML Body Lotion</strong> are kept on the Gondola shelves?",
-        questionHint:"Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
+        questionHint: "Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
         screenType: "meter-count",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "number",
-        placeArea: "gondola",
+        storeDisplayLocation: "gondola",
     },
     {
         _id: 26,
@@ -704,10 +773,12 @@ export const DEFAULT_QUESTIONS = [
         questionSubCategory: "Gondola Planogram",
         questionChildCategory: "Gondola SKU Display",
         description: "Is the display of <strong>Skin Firming Nourishing Hydration 400 ML Body Lotion</strong> on the Gondola Shelves same as displayed in the Gondola Image shown below?",
-        questionHint:"Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
+        questionHint: "Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
         screenType: "single-question-yes-no",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "yes/no",
-        placeArea: "gondola",
+        storeDisplayLocation: "gondola",
     },
     {
         _id: 27,
@@ -716,8 +787,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "Gondola SKU Availability",
         description: "Is the SKU <strong>Skin Firming Sheer Hydration 400 ML Body Lotion</strong>, as shown in the image below, available on the Gondola End?",
         screenType: "single-question-yes-no",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "yes/no",
-        placeArea: "gondola",
+        storeDisplayLocation: "gondola",
     },
     {
         _id: 28,
@@ -725,10 +798,12 @@ export const DEFAULT_QUESTIONS = [
         questionSubCategory: "Gondola Planogram",
         questionChildCategory: "Gondola SKU Facings",
         description: "How many facings of <strong>Skin Firming Sheer Hydration 400 ML Body Lotion</strong> are kept on the Gondola shelves?",
-        questionHint:"Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
+        questionHint: "Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
         screenType: "meter-count",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "number",
-        placeArea: "gondola",
+        storeDisplayLocation: "gondola",
     },
     {
         _id: 29,
@@ -736,10 +811,12 @@ export const DEFAULT_QUESTIONS = [
         questionSubCategory: "Gondola Planogram",
         questionChildCategory: "Gondola SKU Display",
         description: "Is the display of <strong>Skin Firming Sheer Hydration 400 ML Body Lotion</strong> on the Gondola Shelves same as displayed in the Gondola Image shown below?",
-        questionHint:"Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
+        questionHint: "Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
         screenType: "single-question-yes-no",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "yes/no",
-        placeArea: "gondola",
+        storeDisplayLocation: "gondola",
     },
     {
         _id: 30,
@@ -748,8 +825,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "Gondola SKU Availability",
         description: "Is the SKU <strong>Skin Firming Melanin Beauty and Hydration 400 ML Body Lotion</strong>, shown in the image below, available on the Gondola End?",
         screenType: "single-question-yes-no",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "yes/no",
-        placeArea: "gondola",
+        storeDisplayLocation: "gondola",
     },
     {
         _id: 31,
@@ -757,10 +836,12 @@ export const DEFAULT_QUESTIONS = [
         questionSubCategory: "Gondola Planogram",
         questionChildCategory: "Gondola SKU Facings",
         description: "How many facings of <strong>Skin Firming Melanin Beauty and Hydration 400 ML Body Lotion</strong> are kept on the Gondola shelves?",
-        questionHint:"Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
+        questionHint: "Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
         screenType: "meter-count",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "number",
-        placeArea: "gondola",
+        storeDisplayLocation: "gondola",
     },
     {
         _id: 32,
@@ -768,10 +849,12 @@ export const DEFAULT_QUESTIONS = [
         questionSubCategory: "Gondola Planogram",
         questionChildCategory: "Gondola SKU Display",
         description: "Is the display of <strong>Skin Firming Melanin Beauty and Hydration 400 ML Body Lotion</strong> on the Gondola Shelves same as displayed in the Gondola Image shown below?",
-        questionHint:"Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
+        questionHint: "Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
         screenType: "single-question-yes-no",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "yes/no",
-        placeArea: "gondola",
+        storeDisplayLocation: "gondola",
     },
     {
         _id: 33,
@@ -780,8 +863,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "General Information",
         description: "Great going !!!<br/>Let's now move to the next <strong>Gondola End</strong> kept in the store.",
         screenType: "question-info",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "free text",
-        placeArea: "gondola",
+        storeDisplayLocation: "gondola",
     },
     {
         _id: 34,
@@ -790,8 +875,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "Gondola Location",
         description: "Please provide the name of section where this <strong>Gondola End</strong> is kept in the store.",
         screenType: "meter-image",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "free text",
-        placeArea: "gondola",
+        storeDisplayLocation: "gondola",
     },
     {
         _id: 35,
@@ -800,8 +887,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "Gondola Branding",
         description: "Is the branding on the <strong>Gondola</strong> same as the one displayed in the below picture?",
         screenType: "single-question-yes-no",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "yes/no",
-        placeArea: "gondola",
+        storeDisplayLocation: "gondola",
     },
     {
         _id: 36,
@@ -810,8 +899,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "Gondola SKU Availability",
         description: "Is the SKU <strong>Skin Firming Nourishing Hydration 400 ML Body Lotion</strong>, as shown in the image below, available on the Gondola End?",
         screenType: "single-question-yes-no",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "yes/no",
-        placeArea: "gondola",
+        storeDisplayLocation: "gondola",
     },
     {
         _id: 37,
@@ -819,10 +910,12 @@ export const DEFAULT_QUESTIONS = [
         questionSubCategory: "Gondola Planogram",
         questionChildCategory: "Gondola SKU Facings",
         description: "How many facings of <strong>Skin Firming Nourishing Hydration 400 ML Body Lotion</strong> are kept on the Gondola shelves?",
-        questionHint:"Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
+        questionHint: "Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
         screenType: "meter-count",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "number",
-        placeArea: "gondola",
+        storeDisplayLocation: "gondola",
     },
     {
         _id: 38,
@@ -831,8 +924,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "Gondola SKU Display",
         description: "Is the display of <strong>Skin Firming Nourishing Hydration 400 ML Body Lotion</strong> on the Gondola Shelves same as displayed in the Gondola Image shown below?",
         screenType: "single-question-yes-no",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "yes/no",
-        placeArea: "gondola",
+        storeDisplayLocation: "gondola",
     },
     {
         _id: 39,
@@ -841,8 +936,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "Gondola SKU Availability",
         description: "Is the SKU <strong>Skin Firming Sheer Hydration 400 ML Body Lotion</strong>, as shown in the image below, available on the Gondola End?",
         screenType: "single-question-yes-no",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "yes/no",
-        placeArea: "gondola",
+        storeDisplayLocation: "gondola",
     },
     {
         _id: 40,
@@ -850,10 +947,12 @@ export const DEFAULT_QUESTIONS = [
         questionSubCategory: "Gondola Planogram",
         questionChildCategory: "Gondola SKU Facings",
         description: "How many facings of <strong>Skin Firming Sheer Hydration 400 ML Body Lotion</strong> are kept on the Gondola shelves?",
-        questionHint:"Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
+        questionHint: "Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
         screenType: "meter-count",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "number",
-        placeArea: "gondola",
+        storeDisplayLocation: "gondola",
     },
     {
         _id: 41,
@@ -862,8 +961,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "Gondola SKU Display",
         description: "Is the display of <strong>Skin Firming Sheer Hydration 400 ML Body Lotion</strong> on the Gondola Shelves same as displayed in the Gondola Image shown below?",
         screenType: "single-question-yes-no",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "yes/no",
-        placeArea: "gondola",
+        storeDisplayLocation: "gondola",
     },
     {
         _id: 42,
@@ -872,8 +973,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "Gondola SKU Availability",
         description: "Is the SKU <strong>Skin Firming Melanin Beauty and Hydration 400 ML Body Lotion</strong>, shown in the image below, available on the Gondola End?",
         screenType: "single-question-yes-no",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "yes/no",
-        placeArea: "gondola",
+        storeDisplayLocation: "gondola",
     },
     {
         _id: 43,
@@ -881,10 +984,12 @@ export const DEFAULT_QUESTIONS = [
         questionSubCategory: "Gondola Planogram",
         questionChildCategory: "Gondola SKU Facings",
         description: "How many facings of <strong>Skin Firming Melanin Beauty and Hydration 400 ML Body Lotion</strong> are kept on the Gondola shelves?",
-        questionHint:"Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
+        questionHint: "Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
         screenType: "meter-count",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "number",
-        placeArea: "gondola",
+        storeDisplayLocation: "gondola",
     },
     {
         _id: 44,
@@ -893,8 +998,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "Gondola SKU Display",
         description: "Is the display of <strong>Skin Firming Melanin Beauty and Hydration 400 ML Body Lotion</strong> on the Gondola Shelves same as displayed in the Gondola Image shown below?",
         screenType: "single-question-yes-no",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "yes/no",
-        placeArea: "gondola",
+        storeDisplayLocation: "gondola",
     },
     {
         _id: 45,
@@ -904,8 +1011,10 @@ export const DEFAULT_QUESTIONS = [
         description: "Great JOB !!!<br/>Let's now proceed with the survey of the <strong>FSUs</strong> or <strong>Free Standing Units</strong> placed in the store as shown in the image below.",
         shortQuestion: "Pls walk around various sections and proceed once you have seen a FSU",
         screenType: "question-info",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "free text",
-        placeArea: "fsu",
+        storeDisplayLocation: "fsu",
     },
     {
         _id: 46,
@@ -914,8 +1023,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "FSU Count",
         description: "How many <strong>FSUs</strong> as displayed in the Image below did you see in the store?",
         screenType: "meter-count",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "number",
-        placeArea: "fsu",
+        storeDisplayLocation: "fsu",
     },
     {
         _id: 47,
@@ -924,8 +1035,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "General Information",
         description: "OK,<br/>Let's start with the survey of the first <strong>FSUs</strong>",
         screenType: "question-info",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "free text",
-        placeArea: "fsu",
+        storeDisplayLocation: "fsu",
     },
     {
         _id: 48,
@@ -934,8 +1047,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "FSU Location",
         description: "Please provide the name of section where this <strong>FSU</strong> is kept in the store.",
         screenType: "meter-image",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "free text",
-        placeArea: "fsu",
+        storeDisplayLocation: "fsu",
     },
     {
         _id: 49,
@@ -944,8 +1059,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "FSU Branding",
         description: "Is the branding on the <strong>FSU</strong> same as the one displayed in the below picture?",
         screenType: "single-question-yes-no",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "yes/no",
-        placeArea: "fsu",
+        storeDisplayLocation: "fsu",
     },
     {
         _id: 50,
@@ -954,8 +1071,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "FSU SKU Availability",
         description: "Is the SKU <strong>Skin Firming Nourishing Hydration 400 ML Body Lotion</strong>, as shown in the image below, available on the FSU?",
         screenType: "single-question-yes-no",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "yes/no",
-        placeArea: "fsu",
+        storeDisplayLocation: "fsu",
     },
     {
         _id: 51,
@@ -963,10 +1082,12 @@ export const DEFAULT_QUESTIONS = [
         questionSubCategory: "FSU Planogram",
         questionChildCategory: "FSU SKU Facings",
         description: "How many facings of <strong>Skin Firming Nourishing Hydration 400 ML Body Lotion</strong> are kept on the FSU shelves?",
-        questionHint:"Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
+        questionHint: "Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
         screenType: "meter-count",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "number",
-        placeArea: "fsu",
+        storeDisplayLocation: "fsu",
     },
     {
         _id: 52,
@@ -975,8 +1096,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "FSU SKU Display",
         description: "Is the display of <strong>Skin Firming Nourishing Hydration 400 ML Body Lotion</strong> on the FSU Shelves same as displayed in the FSU Image shown below?",
         screenType: "single-question-yes-no",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "yes/no",
-        placeArea: "fsu",
+        storeDisplayLocation: "fsu",
     },
     {
         _id: 53,
@@ -985,8 +1108,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "FSU SKU Availability",
         description: "Is the SKU <strong>Skin Firming Sheer Hydration 400 ML Body Lotion</strong>, as shown in the image below, available on the FSU?",
         screenType: "single-question-yes-no",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "yes/no",
-        placeArea: "fsu",
+        storeDisplayLocation: "fsu",
     },
     {
         _id: 54,
@@ -994,10 +1119,12 @@ export const DEFAULT_QUESTIONS = [
         questionSubCategory: "FSU Planogram",
         questionChildCategory: "FSU SKU Facings",
         description: "How many facings of <strong>Skin Firming Sheer Hydration 400 ML Body Lotion</strong> are kept on the FSU shelves?",
-        questionHint:"Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
+        questionHint: "Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
         screenType: "meter-count",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "number",
-        placeArea: "fsu",
+        storeDisplayLocation: "fsu",
     },
     {
         _id: 55,
@@ -1006,8 +1133,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "FSU SKU Display",
         description: "Is the display of <strong>Skin Firming Sheer Hydration 400 ML Body Lotion</strong> on the FSU Shelves same as displayed in the FSU Image shown below?",
         screenType: "single-question-yes-no",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "yes/no",
-        placeArea: "fsu",
+        storeDisplayLocation: "fsu",
     },
     {
         _id: 56,
@@ -1016,8 +1145,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "FSU SKU Availability",
         description: "Is the SKU <strong>Skin Firming Melanin Beauty and Hydration 400 ML Body Lotion</strong>, shown in the image below, available on the FSU?",
         screenType: "single-question-yes-no",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "yes/no",
-        placeArea: "fsu",
+        storeDisplayLocation: "fsu",
     },
     {
         _id: 57,
@@ -1025,10 +1156,12 @@ export const DEFAULT_QUESTIONS = [
         questionSubCategory: "FSU Planogram",
         questionChildCategory: "FSU SKU Facings",
         description: "How many facings of <strong>Skin Firming Melanin Beauty and Hydration 400 ML Body Lotion</strong> are kept on the FSU shelves?",
-        questionHint:"Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
+        questionHint: "Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
         screenType: "meter-count",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "number",
-        placeArea: "fsu",
+        storeDisplayLocation: "fsu",
     },
     {
         _id: 58,
@@ -1037,8 +1170,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "FSU SKU Display",
         description: "Is the display of <strong>Skin Firming Melanin Beauty and Hydration 400 ML Body Lotion</strong> on the FSU Shelves same as displayed in the FSU Image shown below?",
         screenType: "single-question-yes-no",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "yes/no",
-        placeArea: "fsu",
+        storeDisplayLocation: "fsu",
     },
     {
         _id: 59,
@@ -1047,8 +1182,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "General Information",
         description: "Great going !!!<br/>Let's now move to the next <strong>FSU</strong> kept in the store.",
         screenType: "question-info",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "free text",
-        placeArea: "fsu",
+        storeDisplayLocation: "fsu",
     },
     {
         _id: 60,
@@ -1057,8 +1194,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "FSU Location",
         description: "Please provide the name of section where this <strong>FSU</strong> is kept in the store.",
         screenType: "question-info",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "free text",
-        placeArea: "fsu",
+        storeDisplayLocation: "fsu",
     },
     {
         _id: 61,
@@ -1067,8 +1206,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "FSU Branding",
         description: "Is the branding on the <strong>FSU</strong> same as the one displayed in the below picture?",
         screenType: "single-question-yes-no",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "yes/no",
-        placeArea: "fsu",
+        storeDisplayLocation: "fsu",
     },
     {
         _id: 62,
@@ -1077,8 +1218,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "FSU SKU Availability",
         description: "Is the SKU <strong>Skin Firming Nourishing Hydration 400 ML Body Lotion</strong>, as shown in the image below, available on the FSU?",
         screenType: "single-question-yes-no",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "yes/no",
-        placeArea: "fsu",
+        storeDisplayLocation: "fsu",
     },
     {
         _id: 63,
@@ -1086,10 +1229,12 @@ export const DEFAULT_QUESTIONS = [
         questionSubCategory: "FSU Planogram",
         questionChildCategory: "FSU SKU Facings",
         description: "How many facings of <strong>Skin Firming Nourishing Hydration 400 ML Body Lotion</strong> are kept on the FSU shelves?",
-        questionHint:"Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
+        questionHint: "Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
         screenType: "meter-count",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "number",
-        placeArea: "fsu",
+        storeDisplayLocation: "fsu",
     },
     {
         _id: 64,
@@ -1098,8 +1243,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "FSU SKU Display",
         description: "Is the display of <strong>Skin Firming Nourishing Hydration 400 ML Body Lotion</strong> on the FSU Shelves same as displayed in the FSU Image shown below?",
         screenType: "single-question-yes-no",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "yes/no",
-        placeArea: "fsu",
+        storeDisplayLocation: "fsu",
     },
     {
         _id: 65,
@@ -1108,8 +1255,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "FSU SKU Availability",
         description: "Is the SKU <strong>Skin Firming Sheer Hydration 400 ML Body Lotion</strong>, as shown in the image below, available on the FSU?",
         screenType: "single-question-yes-no",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "yes/no",
-        placeArea: "fsu",
+        storeDisplayLocation: "fsu",
     },
     {
         _id: 66,
@@ -1118,8 +1267,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "FSU SKU Facings",
         description: "How many facings of <strong>Skin Firming Sheer Hydration 400 ML Body Lotion</strong> are kept on the FSU shelves?",
         screenType: "meter-count",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "number",
-        placeArea: "fsu",
+        storeDisplayLocation: "fsu",
     },
     {
         _id: 67,
@@ -1127,10 +1278,12 @@ export const DEFAULT_QUESTIONS = [
         questionSubCategory: "FSU Planogram",
         questionChildCategory: "FSU SKU Display",
         description: "Is the display of <strong>Skin Firming Sheer Hydration 400 ML Body Lotion</strong> on the FSU Shelves same as displayed in the FSU Image shown below?",
-        questionHint:"Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
+        questionHint: "Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
         screenType: "single-question-yes-no",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "yes/no",
-        placeArea: "fsu",
+        storeDisplayLocation: "fsu",
     },
     {
         _id: 68,
@@ -1139,8 +1292,10 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "FSU SKU availability",
         description: "Is the SKU <strong>Skin Firming Melanin Beauty and Hydration 400 ML Body Lotion</strong>, shown in the image below, available on the FSU?",
         screenType: "single-question-yes-no",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "yes/no",
-        placeArea: "fsu",
+        storeDisplayLocation: "fsu",
     },
     {
         _id: 69,
@@ -1148,10 +1303,12 @@ export const DEFAULT_QUESTIONS = [
         questionSubCategory: "FSU Planogram",
         questionChildCategory: "FSU SKU Facings",
         description: "How many facings of <strong>Skin Firming Melanin Beauty and Hydration 400 ML Body Lotion</strong> are kept on the FSU shelves?",
-        questionHint:"Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
+        questionHint: "Facings are the number of units of the SKUs displayed on the front row \nDo not count units kept in the back rows",
         screenType: "meter-count",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "number",
-        placeArea: "fsu",
+        storeDisplayLocation: "fsu",
     },
     {
         _id: 70,
@@ -1160,21 +1317,70 @@ export const DEFAULT_QUESTIONS = [
         questionChildCategory: "FSU SKU Display",
         description: "Is the display of <strong>Skin Firming Melanin Beauty and Hydration 400 ML Body Lotion</strong> on the FSU Shelves same as displayed in the FSU Image shown below?",
         screenType: "single-question-yes-no",
+        usedForDeviation: "no",
+        skuSpecific: "no",
         responseType: "yes/no",
-        placeArea: "fsu",
+        storeDisplayLocation: "fsu",
     },
+    {
+        _id: 71,
+        questionCategory: "general information",
+        questionSubCategory: "general information",
+        questionChildCategory: "general information",
+        description: "Thank You,<br/> You have successfully completed the survey",
+        screenType: "question-complete",
+        usedForDeviation: "no",
+        skuSpecific: "no",
+        responseType: "action"
+    }
 ]
-export const DEFAULT_SURVEY_QUESTIONS=[
-  {
-    questionId: 1,
-    brandId: 1,
-    productId: 1,
-    skuId: 1,
-    visitId: 1,
-    expectedResponse:"",
-    surveyorResponse:"",
-    baseScore: 0,
-    referenceImage:"",
-    surveyorImage:""
-  }
+export const DEFAULT_SURVEY_QUESTIONS = [
+    {
+        brandId: 1,
+        productId: 1,
+        visitId: 1,
+        questionId: 1,
+        skuId: null,
+        expectedResponse: "",
+        surveyorResponse: "",
+        baseScore: 0,
+        referenceImage: "",
+        surveyorImage: ""
+    },
+    {
+        brandId: 1,
+        productId: 1,
+        visitId: 1,
+        questionId: 2,
+        skuId: null,
+        expectedResponse: "",
+        surveyorResponse: "",
+        baseScore: 0,
+        referenceImage: "",
+        surveyorImage: ""
+    },
+    {
+        brandId: 1,
+        productId: 1,
+        visitId: 1,
+        questionId: 3,
+        skuId: null,
+        expectedResponse: "",
+        surveyorResponse: "",
+        baseScore: 0,
+        referenceImage: "",
+        surveyorImage: ""
+    },
+    {
+        brandId: 1,
+        productId: 1,
+        visitId: 1,
+        questionId: 4,
+        skuId: 1,
+        expectedResponse: "",
+        surveyorResponse: "",
+        baseScore: 0,
+        referenceImage: "",
+        surveyorImage: ""
+    }
 ]

@@ -37,9 +37,17 @@ const QuestionMaster = sequelize.define("question-master", {
     type: Sequelize.String,
     defaultValue: "number"
   },
-  placeArea:{
+  usedForDeviation:{
     type: Sequelize.String,
-    defaultValue: ""
+    defaultValue: "no"
+  },
+  skuSpecific:{
+    type: Sequelize.String,
+    defaultValue: "no"
+  },
+  storeDisplayLocation:{
+    type: Sequelize.String,
+    defaultValue: "primary"
   }
 }, {
   indexes: [

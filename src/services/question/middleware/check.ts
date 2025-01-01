@@ -25,7 +25,9 @@ export const validate = (req: Request, res: Response, next: NextFunction) => {
     responseType: Joi.string().required().messages({
       "string.empty": "Response Type not be empty",
     }),
-    placeArea: Joi.string()
+    usedForDeviation: Joi.string(),
+    skuSpecific: Joi.string(),
+    storeDisplayLocation: Joi.string()
   });
   const { error, value } = schema.validate(req.body, {
     abortEarly: false,

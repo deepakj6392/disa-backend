@@ -72,7 +72,15 @@ const SurveyQuestion = sequelize.define("survey-question", {
   surveyorImage: {
     type: Sequelize.STRING,
     allowNull: true
-  }
+  },
+  skipToSurveyQuestionId: {
+    type: Sequelize.INTEGER,
+    allowNull: true,
+  },
+  relatedSurveyQuestionId: {
+    type: Sequelize.INTEGER,
+    allowNull: true,
+  },
 }, {
   indexes: [
     {
