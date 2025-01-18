@@ -28,7 +28,7 @@ const upload = multer({
     })
   })
 router.use(upload.any());
-
+router.use(express.static('./temp'))
 applyMiddleware(middleware, router);
 applyRoutes(routes, router);
 applyMiddleware(errorHandlers, router);

@@ -12,7 +12,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteSurveyQuestionById = exports.updateSurveyQuestionById = exports.getSurveyQuestionById = exports.findAllSurveyQuestions = exports.createSurveyQuestion = void 0;
+exports.createDefaultSurveyQuestions = exports.deleteSurveyQuestionById = exports.updateSurveyQuestionById = exports.getSurveyQuestionById = exports.findAllSurveyQuestions = exports.createSurveyQuestion = void 0;
+const default_1 = require("../../constants/default");
 const models_1 = __importDefault(require("../../models"));
 const brand_model_1 = __importDefault(require("../../models/brand.model"));
 const product_model_1 = __importDefault(require("../../models/product.model"));
@@ -76,7 +77,7 @@ const findAllSurveyQuestions = (req, next) => __awaiter(void 0, void 0, void 0, 
     try {
         const search = req.query.search;
         var condition = search ? { questionId: { [Op.like]: `%${search}%` } } : null;
-        const data = yield survey_question_model_1.default.findAll({ where: condition });
+        const data = yield survey_question_model_1.default.findAll({ where: condition, include: [question_master_model_1.default, sku_model_1.default, visit_model_1.default, brand_model_1.default, product_model_1.default] });
         if (data)
             return data;
     }
@@ -160,4 +161,17 @@ const deleteSurveyQuestionById = (req, next) => __awaiter(void 0, void 0, void 0
     }
 });
 exports.deleteSurveyQuestionById = deleteSurveyQuestionById;
+const createDefaultSurveyQuestions = () => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const survey = yield survey_question_model_1.default.findOne({ where: { surveyQuestionId: 1 } });
+        if (!survey) {
+            yield survey_question_model_1.default.bulkCreate(default_1.DEFAULT_SURVEY_QUESTIONS);
+            console.log("Default survey questions created successfully!");
+        }
+    }
+    catch (error) {
+        console.log(`default survey questions create failed: ${error}`);
+    }
+});
+exports.createDefaultSurveyQuestions = createDefaultSurveyQuestions;
 //# sourceMappingURL=controller.js.map

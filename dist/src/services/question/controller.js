@@ -19,11 +19,11 @@ const question_master_model_1 = __importDefault(require("../../models/question-m
 const Op = models_1.default.Sequelize.Op;
 const createQuestion = (req, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { questionCategory, questionSubCategory, questionChildCategory, longQuestion, shortQuestion, screenType, usedForDeviation, skuSpecific, storeDisplayLocation } = req.body;
+        const { questionCategory, questionSubCategory, questionChildCategory, description, questionHint, screenType, responseType, storeDisplayLocation, usedForDeviation, skuSpecific } = req.body;
         const survey = {
             questionCategory, questionSubCategory, questionChildCategory,
-            longQuestion, shortQuestion, screenType, usedForDeviation, skuSpecific,
-            storeDisplayLocation
+            description, screenType, responseType, storeDisplayLocation, questionHint,
+            usedForDeviation, skuSpecific
         };
         const data = yield question_master_model_1.default.create(survey);
         yield data.save();
@@ -69,11 +69,11 @@ exports.getQuestionById = getQuestionById;
 const updateQuestionById = (req, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = req.params.id;
-        const { questionCategory, questionSubCategory, questionChildCategory, longQuestion, shortQuestion, screenType, usedForDeviation, skuSpecific, storeDisplayLocation } = req.body;
+        const { questionCategory, questionSubCategory, questionChildCategory, description, screenType, responseType, questionHint, storeDisplayLocation, usedForDeviation, skuSpecific } = req.body;
         let payload = {
             questionCategory, questionSubCategory, questionChildCategory,
-            longQuestion, shortQuestion, screenType, usedForDeviation, skuSpecific,
-            storeDisplayLocation
+            description, screenType, responseType, questionHint, storeDisplayLocation,
+            usedForDeviation, skuSpecific
         };
         const num = yield question_master_model_1.default.update(payload, {
             where: { questionId: id }

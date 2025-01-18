@@ -14,8 +14,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteSurveySubmissionById = exports.getSurveySubmissionById = exports.findAllSurveySubmissionByUser = exports.findAllSurveySubmissions = exports.createSurveySubmission = void 0;
 const models_1 = __importDefault(require("../../models"));
+const brand_model_1 = __importDefault(require("../../models/brand.model"));
+const product_model_1 = __importDefault(require("../../models/product.model"));
+const question_master_model_1 = __importDefault(require("../../models/question-master.model"));
+const sku_model_1 = __importDefault(require("../../models/sku.model"));
+const survey_question_model_1 = __importDefault(require("../../models/survey-question.model"));
 const survey_submission_model_1 = require("../../models/survey-submission.model");
 const user_model_1 = __importDefault(require("../../models/user.model"));
+const visit_model_1 = __importDefault(require("../../models/visit.model"));
 const Op = models_1.default.Sequelize.Op;
 const createSurveySubmission = (req, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -36,7 +42,17 @@ const createSurveySubmission = (req, next) => __awaiter(void 0, void 0, void 0, 
 exports.createSurveySubmission = createSurveySubmission;
 const findAllSurveySubmissions = (req, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const data = yield survey_submission_model_1.SurveySubmission.findAll({});
+        const data = yield survey_submission_model_1.SurveySubmission.findAll({ include: [
+                {
+                    model: survey_submission_model_1.SurveyAnswer,
+                    include: [{
+                            model: survey_question_model_1.default,
+                            include: [
+                                brand_model_1.default, visit_model_1.default, question_master_model_1.default, product_model_1.default, sku_model_1.default
+                            ]
+                        }]
+                },
+            ] });
         if (data)
             return data;
     }

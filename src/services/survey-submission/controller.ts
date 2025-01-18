@@ -37,7 +37,17 @@ export const createSurveySubmission = async (req: any, next: any) => {
 
 export const findAllSurveySubmissions = async (req: any, next: any) => {
   try {
-    const data = await SurveySubmission.findAll({ })
+    const data = await SurveySubmission.findAll({include:[
+      {
+        model: SurveyAnswer,
+        include:[{
+          model:SurveyQuestion,
+          include:[
+            Brand, Visit, QuestionMaster, Product, SkuModel
+          ]
+        }]
+      },
+    ]})
     if (data)
       return data;
 

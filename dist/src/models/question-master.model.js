@@ -23,11 +23,11 @@ const QuestionMaster = sequelize.define("question-master", {
         type: Sequelize.STRING,
         allowNull: false
     },
-    longQuestion: {
+    description: {
         type: Sequelize.STRING,
         allowNull: true,
     },
-    shortQuestion: {
+    questionHint: {
         type: Sequelize.STRING,
         allowNull: true,
         defaultValue: '',
@@ -36,22 +36,26 @@ const QuestionMaster = sequelize.define("question-master", {
         type: Sequelize.STRING,
         allowNull: false
     },
+    responseType: {
+        type: Sequelize.STRING,
+        defaultValue: "number"
+    },
     usedForDeviation: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: true
+        type: Sequelize.STRING,
+        defaultValue: "no"
     },
     skuSpecific: {
         type: Sequelize.STRING,
-        allowNull: false
+        defaultValue: "no"
     },
     storeDisplayLocation: {
         type: Sequelize.STRING,
-        allowNull: false
-    },
+        defaultValue: "primary"
+    }
 }, {
     indexes: [
         {
-            fields: ['longQuestion', 'shortQuestion']
+            fields: ['description']
         }
     ]
 });

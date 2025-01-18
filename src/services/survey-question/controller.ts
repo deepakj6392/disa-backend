@@ -1,9 +1,11 @@
+import { DEFAULT_SURVEY_QUESTIONS } from "../../constants/default";
 import db from "../../models";
 import Brand from "../../models/brand.model";
 import Product from "../../models/product.model";
 import QuestionMaster from "../../models/question-master.model";
 import SkuModel from "../../models/sku.model";
 import SurveyQuestion from "../../models/survey-question.model";
+import Survey from "../../models/survey.model";
 import Visit from "../../models/visit.model";
 const Op = db.Sequelize.Op;
 
@@ -72,7 +74,7 @@ export const findAllSurveyQuestions = async (req: any, next: any) => {
     const search = req.query.search;
     var condition = search ? { questionId: { [Op.like]: `%${search}%` } } : null;
 
-    const data = await SurveyQuestion.findAll({ where: condition })
+    const data = await SurveyQuestion.findAll({ where: condition ,include:[QuestionMaster, SkuModel,Visit,Brand,Product]})
     if (data)
       return data;
 
@@ -151,14 +153,14 @@ export const deleteSurveyQuestionById = async (req: any, next: any) => {
   }
 };
 
-// export const createDefaultSurveys= async()=>{
-//   try {
-//     const survey= await Survey.findOne({where: { surveyId: 1 }});
-//     if(!survey){
-//       await Survey.bulkCreate(DEFAULT_SURVEY);
-//       console.log("Default survey created successfully!")
-//     }
-//   } catch (error) {
-//     console.log(`default survey create failed: ${error}`)
-//   }
-// }
+export const createDefaultSurveyQuestions= async()=>{
+  try {
+    const survey= await SurveyQuestion.findOne({where: { surveyQuestionId: 1 }});
+    if(!survey){
+      await SurveyQuestion.bulkCreate(DEFAULT_SURVEY_QUESTIONS);
+      console.log("Default survey questions created successfully!")
+    }
+  } catch (error) {
+    console.log(`default survey questions create failed: ${error}`)
+  }
+}

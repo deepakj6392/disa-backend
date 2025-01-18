@@ -15,6 +15,10 @@ const Product = sequelize.define("product", {
         type: Sequelize.STRING,
         allowNull: false
     },
+    productCategory: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
 }, {
     indexes: [
         {

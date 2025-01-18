@@ -39,7 +39,7 @@ const SurveyQuestion = sequelize.define("survey-question", {
   },
   skuId: {
     type: Sequelize.INTEGER,
-    allowNull: false,
+    allowNull: true,
     references: {
       model: 'skus',
       key: 'skuId',
@@ -47,7 +47,7 @@ const SurveyQuestion = sequelize.define("survey-question", {
   },
   visitId: {
     type: Sequelize.INTEGER,
-    allowNull: false,
+    allowNull: true,
     references: {
       model: 'visits',
       key: 'visitId',

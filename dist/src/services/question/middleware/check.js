@@ -19,24 +19,19 @@ const validate = (req, res, next) => {
         questionChildCategory: joi_1.default.string().trim(true).required().messages({
             "string.empty": "Child Category can not be empty",
         }),
-        longQuestion: joi_1.default.string().trim(true).required().messages({
-            "string.empty": "Long question can not be empty",
+        description: joi_1.default.string().trim(true).required().messages({
+            "string.empty": "Description can not be empty",
         }),
-        shortQuestion: joi_1.default.string().trim(true).required().messages({
-            "string.empty": "Short question can not be empty",
-        }),
+        questionHint: joi_1.default.string().trim(true),
         screenType: joi_1.default.string().trim(true).required().messages({
             "string.empty": "Screen type can not be empty",
         }),
-        usedForDeviation: joi_1.default.bool().required().messages({
-            "bool.empty": "Deviation can not be empty",
+        responseType: joi_1.default.string().required().messages({
+            "string.empty": "Response Type not be empty",
         }),
-        skuSpecific: joi_1.default.string().trim(true).required().messages({
-            "string.empty": "SKU specific can not be empty",
-        }),
-        storeDisplayLocation: joi_1.default.string().trim(true).required().messages({
-            "string.empty": "Store display location can not be empty",
-        })
+        usedForDeviation: joi_1.default.string(),
+        skuSpecific: joi_1.default.string(),
+        storeDisplayLocation: joi_1.default.string()
     });
     const { error, value } = schema.validate(req.body, {
         abortEarly: false,

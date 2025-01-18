@@ -31,6 +31,7 @@ const upload = (0, multer_1.default)({
     })
 });
 router.use(upload.any());
+router.use(express_1.default.static('./temp'));
 (0, utils_1.applyMiddleware)(middleware_1.default, router);
 (0, utils_1.applyRoutes)(services_1.default, router);
 (0, utils_1.applyMiddleware)(errorHandlers_1.default, router);

@@ -69,7 +69,9 @@ const SurveyAnswer = sequelize.define("survey-answer", {
   },
 });
 
+
 // Associations
+SurveySubmission.hasMany(SurveyAnswer, { foreignKey: 'surveySubmissionId' });
 SurveySubmission.belongsTo(User, { foreignKey: "surveyorId" });
 SurveyAnswer.belongsTo(SurveySubmission, { foreignKey: "surveySubmissionId" });
 SurveyAnswer.belongsTo(SurveyQuestion, { foreignKey: "surveyQuestionId" });

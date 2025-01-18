@@ -10,9 +10,17 @@ const Utilities_1 = require("../../../utils/Utilities");
 const ErrorHandler_1 = require("../../../utils/ErrorHandler");
 const validate = (req, res, next) => {
     const schema = joi_1.default.object({
-        brandName: joi_1.default.string().trim(true).required().messages({
-            "string.empty": "Brand Name can not be empty",
-        })
+        productId: joi_1.default.number().required(),
+        skuName: joi_1.default.string().trim(true).required().messages({
+            "string.empty": "SKU Name can not be empty",
+        }),
+        skuGrammage: joi_1.default.string().trim(true).required().messages({
+            "string.empty": "SKU Grammage can not be empty",
+        }),
+        skuFullName: joi_1.default.string().trim(true).required().messages({
+            "string.empty": "SKU Fullname can not be empty",
+        }),
+        skuImage: joi_1.default.string().trim(true)
     });
     const { error, value } = schema.validate(req.body, {
         abortEarly: false,

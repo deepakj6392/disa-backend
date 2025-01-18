@@ -1,3 +1,4 @@
+import { DEFAULT_VISIT } from "../../constants/default";
 import db from "../../models";
 import Store from "../../models/store.model";
 import Survey from "../../models/survey.model";
@@ -119,3 +120,15 @@ export const deleteVisitById = async (req: any, next: any) => {
     next(error);
   }
 };
+
+export const createDefaultVisits= async()=>{
+  try {
+    const visit= await Visit.findOne({where: { visitId: 1 }});
+    if(!visit){
+      await Visit.bulkCreate(DEFAULT_VISIT);
+      console.log("Default visits created successfully!")
+    }
+  } catch (error) {
+    console.log(`default visits create failed: ${error}`)
+  }
+}

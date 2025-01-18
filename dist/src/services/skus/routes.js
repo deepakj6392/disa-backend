@@ -10,6 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const checks_1 = require("../../middleware/checks");
+const check_1 = require("./middleware/check");
 const configuration_1 = require("../../../config/configuration");
 const controller_1 = require("./controller");
 const basePath = configuration_1.CONSTANTS.BASE_PATH;
@@ -20,7 +21,7 @@ exports.default = [
         path: currentPathURL + "create",
         method: "post",
         handler: [
-            // validate,
+            check_1.validate,
             (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
                 const result = yield (0, controller_1.createSKU)(req, next);
                 res.status(200).send(result);

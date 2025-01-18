@@ -12,7 +12,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteBrandById = exports.updateBrandById = exports.getBrandById = exports.findAllBrands = exports.createBrand = void 0;
+exports.createDefaultBrands = exports.deleteBrandById = exports.updateBrandById = exports.getBrandById = exports.findAllBrands = exports.createBrand = void 0;
+const default_1 = require("../../constants/default");
 const models_1 = __importDefault(require("../../models"));
 const brand_model_1 = __importDefault(require("../../models/brand.model"));
 const Op = models_1.default.Sequelize.Op;
@@ -126,4 +127,17 @@ const deleteBrandById = (req, next) => __awaiter(void 0, void 0, void 0, functio
     }
 });
 exports.deleteBrandById = deleteBrandById;
+const createDefaultBrands = () => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const brand = yield brand_model_1.default.findOne({ where: { brandId: 1 } });
+        if (!brand) {
+            yield brand_model_1.default.bulkCreate(default_1.DEFAULT_BRAND);
+            console.log("Default brands created successfully!");
+        }
+    }
+    catch (error) {
+        console.log(`default brands create failed: ${error}`);
+    }
+});
+exports.createDefaultBrands = createDefaultBrands;
 //# sourceMappingURL=controller.js.map

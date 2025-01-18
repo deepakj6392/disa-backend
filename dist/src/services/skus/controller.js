@@ -12,14 +12,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteSKUById = exports.updateSKUById = exports.getSKUById = exports.findAllSKUs = exports.createSKU = void 0;
+exports.createDefaultSKUS = exports.deleteSKUById = exports.updateSKUById = exports.getSKUById = exports.findAllSKUs = exports.createSKU = void 0;
+const default_1 = require("../../constants/default");
 const models_1 = __importDefault(require("../../models"));
 const product_model_1 = __importDefault(require("../../models/product.model"));
 const sku_model_1 = __importDefault(require("./../../models/sku.model"));
 const Op = models_1.default.Sequelize.Op;
 const createSKU = (req, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { skuName, productId, skuGrammage, skuFullName, skuImage, skuCategory } = req.body;
+        const { skuName, productId, skuGrammage, skuFullName, skuImage } = req.body;
         const checkBrand = yield sku_model_1.default.findOne({
             where: {
                 skuName, productId
@@ -29,7 +30,7 @@ const createSKU = (req, next) => __awaiter(void 0, void 0, void 0, function* () 
             return "SKU already exists";
         }
         const brand = {
-            skuName, productId, skuGrammage, skuFullName, skuImage, skuCategory
+            skuName, productId, skuGrammage, skuFullName, skuImage
         };
         const data = yield sku_model_1.default.create(brand);
         yield data.save();
@@ -75,9 +76,9 @@ exports.getSKUById = getSKUById;
 const updateSKUById = (req, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = req.params.id;
-        const { skuName, productId, skuGrammage, skuFullName, skuImage, skuCategory } = req.body;
+        const { skuName, productId, skuGrammage, skuFullName, skuImage } = req.body;
         let payload = {
-            skuName, productId, skuGrammage, skuFullName, skuImage, skuCategory
+            skuName, productId, skuGrammage, skuFullName, skuImage
         };
         const num = yield sku_model_1.default.update(payload, {
             where: { skuId: id }
@@ -118,4 +119,17 @@ const deleteSKUById = (req, next) => __awaiter(void 0, void 0, void 0, function*
     }
 });
 exports.deleteSKUById = deleteSKUById;
+const createDefaultSKUS = () => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const sku = yield sku_model_1.default.findOne({ where: { skuId: 1 } });
+        if (!sku) {
+            yield sku_model_1.default.bulkCreate(default_1.DEFAULT_SKUS);
+            console.log("Default skus created successfully!");
+        }
+    }
+    catch (error) {
+        console.log(`default skus create failed: ${error}`);
+    }
+});
+exports.createDefaultSKUS = createDefaultSKUS;
 //# sourceMappingURL=controller.js.map

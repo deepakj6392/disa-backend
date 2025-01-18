@@ -157,3 +157,13 @@ export const createDefaultUsers = async () => {
     console.log(`Error: ${error}`)
   }
 }
+
+export const uploadFile= async(req:any,next: any)=>{
+  try {
+    // upload file logic here
+    const file= req.files[0].filename;
+    return {file};
+  } catch (error) {
+    next(error);
+  }
+}

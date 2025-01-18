@@ -12,7 +12,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteStoreFormatById = exports.updateStoreFormatById = exports.getstoreFormatById = exports.findAllStoreFormat = exports.createStoreFormat = void 0;
+exports.createDefaultStoreFormat = exports.deleteStoreFormatById = exports.updateStoreFormatById = exports.getstoreFormatById = exports.findAllStoreFormat = exports.createStoreFormat = void 0;
+const default_1 = require("../../constants/default");
 const models_1 = __importDefault(require("../../models"));
 const store_format_model_1 = __importDefault(require("../../models/store-format.model"));
 const Op = models_1.default.Sequelize.Op;
@@ -117,4 +118,17 @@ const deleteStoreFormatById = (req, next) => __awaiter(void 0, void 0, void 0, f
     }
 });
 exports.deleteStoreFormatById = deleteStoreFormatById;
+const createDefaultStoreFormat = () => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const store = yield store_format_model_1.default.findOne({ where: { storeFormatId: 1 } });
+        if (!store) {
+            yield store_format_model_1.default.bulkCreate(default_1.DEFAULT_STORE_FORMAT);
+            console.log("Default store formats created successfully!");
+        }
+    }
+    catch (error) {
+        console.log(`default store formats create failed: ${error}`);
+    }
+});
+exports.createDefaultStoreFormat = createDefaultStoreFormat;
 //# sourceMappingURL=controller.js.map

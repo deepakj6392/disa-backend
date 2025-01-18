@@ -12,7 +12,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteStoreById = exports.updateStoreById = exports.getStoreById = exports.findAllStores = exports.createStore = void 0;
+exports.createDefaultStores = exports.deleteStoreById = exports.updateStoreById = exports.getStoreById = exports.findAllStores = exports.createStore = void 0;
+const default_1 = require("../../constants/default");
 const models_1 = __importDefault(require("../../models"));
 const store_model_1 = __importDefault(require("./../../models/store.model"));
 const Op = models_1.default.Sequelize.Op;
@@ -118,4 +119,17 @@ const deleteStoreById = (req, next) => __awaiter(void 0, void 0, void 0, functio
     }
 });
 exports.deleteStoreById = deleteStoreById;
+const createDefaultStores = () => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const store = yield store_model_1.default.findOne({ where: { storeId: 1 } });
+        if (!store) {
+            yield store_model_1.default.bulkCreate(default_1.DEFAULT_STORES);
+            console.log("Default stores created successfully!");
+        }
+    }
+    catch (error) {
+        console.log(`default stores create failed: ${error}`);
+    }
+});
+exports.createDefaultStores = createDefaultStores;
 //# sourceMappingURL=controller.js.map

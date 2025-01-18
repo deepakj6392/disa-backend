@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { checkAuthenticate } from "../../middleware/checks";
 import { validate, validateLogin } from "./middleware/check";
-import { createUser, deleteById, findAllUsers, getUserById, loginUser, updateById } from "./controller";
+import { createUser, deleteById, findAllUsers, getUserById, loginUser, updateById, uploadFile } from "./controller";
 import { CONSTANTS } from "../../../config/configuration";
 const basePath = CONSTANTS.BASE_PATH;
 const currentPath = "user/";
@@ -14,7 +14,7 @@ export default [
     handler: [
       validate,
       async (req: Request, res: Response, next: NextFunction) => {
-        const result = await createUser( req, next);
+        const result = await createUser(req, next);
         res.status(200).send(result);
       },
     ],
@@ -25,7 +25,7 @@ export default [
     handler: [
       validateLogin,
       async (req: Request, res: Response, next: NextFunction) => {
-        const result = await loginUser( req, next);
+        const result = await loginUser(req, next);
         res.status(200).send(result);
       },
     ],
@@ -35,7 +35,7 @@ export default [
     method: "get",
     handler: [
       async (req: Request, res: Response, next: NextFunction) => {
-        const result = await findAllUsers( req, next);
+        const result = await findAllUsers(req, next);
         res.status(200).send(result);
       },
     ],
@@ -47,7 +47,7 @@ export default [
     handler: [
       checkAuthenticate,
       async (req: Request, res: Response, next: NextFunction) => {
-        const result = await updateById( req, next);
+        const result = await updateById(req, next);
         res.status(200).send(result);
       },
     ],
@@ -68,10 +68,21 @@ export default [
     method: "delete",
     handler: [
       async (req: Request, res: Response, next: NextFunction) => {
-        const result = await deleteById( req, next);
+        const result = await deleteById(req, next);
         res.status(200).send(result);
       },
     ],
   },
-  
+
+  {
+    path: basePath + "media/upload",
+    method: "post",
+    handler: [
+      async (req: Request, res: Response, next: NextFunction) => {
+        const result = await uploadFile(req, next);
+        res.status(200).send(result);
+      },
+    ],
+  },
+
 ];

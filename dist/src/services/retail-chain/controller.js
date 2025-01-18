@@ -12,7 +12,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteRetailChainById = exports.updateRetailChainById = exports.getRetailChainById = exports.findAllRetailChain = exports.createRetailChain = void 0;
+exports.createDefaultRetailChain = exports.deleteRetailChainById = exports.updateRetailChainById = exports.getRetailChainById = exports.findAllRetailChain = exports.createRetailChain = void 0;
+const default_1 = require("../../constants/default");
 const models_1 = __importDefault(require("../../models"));
 const retail_chain_model_1 = __importDefault(require("../../models/retail-chain.model"));
 const Op = models_1.default.Sequelize.Op;
@@ -117,4 +118,17 @@ const deleteRetailChainById = (req, next) => __awaiter(void 0, void 0, void 0, f
     }
 });
 exports.deleteRetailChainById = deleteRetailChainById;
+const createDefaultRetailChain = () => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const chain = yield retail_chain_model_1.default.findOne({ where: { retailChainId: 1 } });
+        if (!chain) {
+            yield retail_chain_model_1.default.bulkCreate(default_1.DEFAULT_RETAIL_CHAIN);
+            console.log("Default chain created successfully!");
+        }
+    }
+    catch (error) {
+        console.log(`default chain create failed: ${error}`);
+    }
+});
+exports.createDefaultRetailChain = createDefaultRetailChain;
 //# sourceMappingURL=controller.js.map

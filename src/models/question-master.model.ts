@@ -34,19 +34,19 @@ const QuestionMaster = sequelize.define("question-master", {
     allowNull: false
   },
   responseType: {
-    type: Sequelize.String,
+    type: Sequelize.STRING,
     defaultValue: "number"
   },
   usedForDeviation:{
-    type: Sequelize.String,
+    type: Sequelize.STRING,
     defaultValue: "no"
   },
   skuSpecific:{
-    type: Sequelize.String,
+    type: Sequelize.STRING,
     defaultValue: "no"
   },
   storeDisplayLocation:{
-    type: Sequelize.String,
+    type: Sequelize.STRING,
     defaultValue: "primary"
   }
 }, {

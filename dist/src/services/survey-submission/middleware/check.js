@@ -10,7 +10,7 @@ const Utilities_1 = require("../../../utils/Utilities");
 const ErrorHandler_1 = require("../../../utils/ErrorHandler");
 const validate = (req, res, next) => {
     const schema = joi_1.default.object({
-        surveyorId: joi_1.default.number().required(),
+        surveyorId: joi_1.default.number().required().label("Surveyor"),
         answers: joi_1.default.array().required(),
     });
     const { error, value } = schema.validate(req.body, {

@@ -12,7 +12,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteVisitById = exports.updateVisitById = exports.getVisitById = exports.findAllVisits = exports.createVisit = void 0;
+exports.createDefaultVisits = exports.deleteVisitById = exports.updateVisitById = exports.getVisitById = exports.findAllVisits = exports.createVisit = void 0;
+const default_1 = require("../../constants/default");
 const models_1 = __importDefault(require("../../models"));
 const store_model_1 = __importDefault(require("../../models/store.model"));
 const survey_model_1 = __importDefault(require("../../models/survey.model"));
@@ -133,4 +134,17 @@ const deleteVisitById = (req, next) => __awaiter(void 0, void 0, void 0, functio
     }
 });
 exports.deleteVisitById = deleteVisitById;
+const createDefaultVisits = () => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const visit = yield visit_model_1.default.findOne({ where: { visitId: 1 } });
+        if (!visit) {
+            yield visit_model_1.default.bulkCreate(default_1.DEFAULT_VISIT);
+            console.log("Default visits created successfully!");
+        }
+    }
+    catch (error) {
+        console.log(`default visits create failed: ${error}`);
+    }
+});
+exports.createDefaultVisits = createDefaultVisits;
 //# sourceMappingURL=controller.js.map

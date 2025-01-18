@@ -82,5 +82,15 @@ exports.default = [
             }),
         ],
     },
+    {
+        path: basePath + "media/upload",
+        method: "post",
+        handler: [
+            (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+                const result = yield (0, controller_1.uploadFile)(req, next);
+                res.status(200).send(result);
+            }),
+        ],
+    },
 ];
 //# sourceMappingURL=routes.js.map

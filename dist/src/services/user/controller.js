@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createDefaultUsers = exports.deleteById = exports.updateById = exports.getUserById = exports.findAllUsers = exports.loginUser = exports.createUser = void 0;
+exports.uploadFile = exports.createDefaultUsers = exports.deleteById = exports.updateById = exports.getUserById = exports.findAllUsers = exports.loginUser = exports.createUser = void 0;
 const constants_1 = require("../../constants");
 const models_1 = __importDefault(require("../../models"));
 const user_model_1 = __importDefault(require("../../models/user.model"));
@@ -172,4 +172,15 @@ const createDefaultUsers = () => __awaiter(void 0, void 0, void 0, function* () 
     }
 });
 exports.createDefaultUsers = createDefaultUsers;
+const uploadFile = (req, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        // upload file logic here
+        const file = req.files[0].filename;
+        return { file };
+    }
+    catch (error) {
+        next(error);
+    }
+});
+exports.uploadFile = uploadFile;
 //# sourceMappingURL=controller.js.map

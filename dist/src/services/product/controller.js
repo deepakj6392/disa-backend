@@ -12,13 +12,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteProductById = exports.updateProductById = exports.getProductById = exports.findAllProducts = exports.createProduct = void 0;
+exports.createDefaultProducts = exports.deleteProductById = exports.updateProductById = exports.getProductById = exports.findAllProducts = exports.createProduct = void 0;
+const default_1 = require("../../constants/default");
 const models_1 = __importDefault(require("../../models"));
 const product_model_1 = __importDefault(require("../../models/product.model"));
 const Op = models_1.default.Sequelize.Op;
 const createProduct = (req, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { productName } = req.body;
+        const { productName, productCategory } = req.body;
         const checkBrand = yield product_model_1.default.findOne({
             where: {
                 productName
@@ -28,7 +29,8 @@ const createProduct = (req, next) => __awaiter(void 0, void 0, void 0, function*
             return "Product already exists";
         }
         const brand = {
-            productName
+            productName,
+            productCategory
         };
         const data = yield product_model_1.default.create(brand);
         yield data.save();
@@ -74,9 +76,10 @@ exports.getProductById = getProductById;
 const updateProductById = (req, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = req.params.id;
-        const { productName } = req.body;
+        const { productName, productCategory } = req.body;
         let payload = {
-            productName
+            productName,
+            productCategory
         };
         const num = yield product_model_1.default.update(payload, {
             where: { productId: id }
@@ -117,4 +120,17 @@ const deleteProductById = (req, next) => __awaiter(void 0, void 0, void 0, funct
     }
 });
 exports.deleteProductById = deleteProductById;
+const createDefaultProducts = () => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const product = yield product_model_1.default.findOne({ where: { productId: 1 } });
+        if (!product) {
+            yield product_model_1.default.bulkCreate(default_1.DEFAULT_PRODUCT);
+            console.log("Default products created successfully!");
+        }
+    }
+    catch (error) {
+        console.log(`default products create failed: ${error}`);
+    }
+});
+exports.createDefaultProducts = createDefaultProducts;
 //# sourceMappingURL=controller.js.map

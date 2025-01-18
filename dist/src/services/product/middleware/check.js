@@ -12,6 +12,9 @@ const validate = (req, res, next) => {
     const schema = joi_1.default.object({
         productName: joi_1.default.string().trim(true).required().messages({
             "string.empty": "Product Name can not be empty",
+        }),
+        productCategory: joi_1.default.string().trim(true).required().messages({
+            "string.empty": "Product category can not be empty",
         })
     });
     const { error, value } = schema.validate(req.body, {

@@ -36,10 +36,6 @@ const SkuModel = sequelize.define("sku", {
         type: Sequelize.STRING,
         allowNull: false
     },
-    skuCategory: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
 }, {
     indexes: [
         {

@@ -12,7 +12,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteSurveyById = exports.updateSurveyById = exports.getSurveyById = exports.findAllSurveys = exports.createSurvey = void 0;
+exports.createDefaultSurveys = exports.deleteSurveyById = exports.updateSurveyById = exports.getSurveyById = exports.findAllSurveys = exports.createSurvey = void 0;
+const default_1 = require("../../constants/default");
 const models_1 = __importDefault(require("../../models"));
 const brand_model_1 = __importDefault(require("../../models/brand.model"));
 const survey_model_1 = __importDefault(require("./../../models/survey.model"));
@@ -112,4 +113,17 @@ const deleteSurveyById = (req, next) => __awaiter(void 0, void 0, void 0, functi
     }
 });
 exports.deleteSurveyById = deleteSurveyById;
+const createDefaultSurveys = () => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const survey = yield survey_model_1.default.findOne({ where: { surveyId: 1 } });
+        if (!survey) {
+            yield survey_model_1.default.bulkCreate(default_1.DEFAULT_SURVEY);
+            console.log("Default survey created successfully!");
+        }
+    }
+    catch (error) {
+        console.log(`default survey create failed: ${error}`);
+    }
+});
+exports.createDefaultSurveys = createDefaultSurveys;
 //# sourceMappingURL=controller.js.map

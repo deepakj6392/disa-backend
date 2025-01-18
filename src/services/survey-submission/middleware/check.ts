@@ -6,7 +6,7 @@ import { errorMessageHander } from "../../../utils/ErrorHandler";
 
 export const validate = (req: Request, res: Response, next: NextFunction) => {
   const schema = Joi.object({
-    surveyorId: Joi.number().required(),
+    surveyorId: Joi.number().required().label("Surveyor"),
     answers: Joi.array().required(),
   });
   const { error, value } = schema.validate(req.body, {
