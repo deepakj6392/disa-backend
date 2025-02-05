@@ -100,31 +100,27 @@ export const getSurveyQuestionById = async (req: any, next: any) => {
 export const updateSurveyQuestionById = async (req: any, next: any) => {
   try {
     const id = req.params.id;
-    const { questionId, brandId, productId, skuId, visitId, expectedResponse,
-      surveyorResponse, baseScore } = req.body
-    let referenceImage, surveyorImage;
-    if (req.files?.length) {
-      for (let file of req.files) {
-        if (file.fieldname === 'referenceImage') {
-          referenceImage = file.filename;
-        } else if (file.fieldname === 'surveyorImage') {
-          surveyorImage = file.filename;
-        }
-      }
-    }
+    const { surveyorResponse, baseScore,skipToSurveyQuestionId,relatedSurveyQuestionId,referenceImage, surveyorImage } = req.body
+
     let payload: any = {
-      questionId, brandId, productId, skuId, visitId, expectedResponse,
-      surveyorResponse, baseScore, referenceImage, surveyorImage
+      surveyorResponse, baseScore, referenceImage, surveyorImage, skipToSurveyQuestionId,relatedSurveyQuestionId
     }
 
     const num = await SurveyQuestion.update(payload, {
-      where: { productId: id }
+      where: { surveyQuestionId: id }
     })
     if (num == 1) {
-      const data = await SurveyQuestion.findByPk(id)
+      const data = await SurveyQuestion.findByPk(id,{
+        include:[QuestionMaster, SkuModel,Visit,Brand,Product]
+      })
       return {
         message: "Survey question updated successfully.",
         data
+      };
+    }else{
+      return {
+        status:400,
+        message: "Survey question update failed."
       };
     };
   } catch (error) {

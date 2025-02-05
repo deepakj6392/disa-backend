@@ -103,33 +103,28 @@ const getSurveyQuestionById = (req, next) => __awaiter(void 0, void 0, void 0, f
 });
 exports.getSurveyQuestionById = getSurveyQuestionById;
 const updateSurveyQuestionById = (req, next) => __awaiter(void 0, void 0, void 0, function* () {
-    var _a;
     try {
         const id = req.params.id;
-        const { questionId, brandId, productId, skuId, visitId, expectedResponse, surveyorResponse, baseScore } = req.body;
-        let referenceImage, surveyorImage;
-        if ((_a = req.files) === null || _a === void 0 ? void 0 : _a.length) {
-            for (let file of req.files) {
-                if (file.fieldname === 'referenceImage') {
-                    referenceImage = file.filename;
-                }
-                else if (file.fieldname === 'surveyorImage') {
-                    surveyorImage = file.filename;
-                }
-            }
-        }
+        const { surveyorResponse, baseScore, skipToSurveyQuestionId, relatedSurveyQuestionId, referenceImage, surveyorImage } = req.body;
         let payload = {
-            questionId, brandId, productId, skuId, visitId, expectedResponse,
-            surveyorResponse, baseScore, referenceImage, surveyorImage
+            surveyorResponse, baseScore, referenceImage, surveyorImage, skipToSurveyQuestionId, relatedSurveyQuestionId
         };
         const num = yield survey_question_model_1.default.update(payload, {
-            where: { productId: id }
+            where: { surveyQuestionId: id }
         });
         if (num == 1) {
-            const data = yield survey_question_model_1.default.findByPk(id);
+            const data = yield survey_question_model_1.default.findByPk(id, {
+                include: [question_master_model_1.default, sku_model_1.default, visit_model_1.default, brand_model_1.default, product_model_1.default]
+            });
             return {
                 message: "Survey question updated successfully.",
                 data
+            };
+        }
+        else {
+            return {
+                status: 400,
+                message: "Survey question update failed."
             };
         }
         ;

@@ -84,6 +84,14 @@ const SurveyQuestion = sequelize.define("survey-question", {
         type: Sequelize.INTEGER,
         allowNull: true,
     },
+    startTime: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+    },
+    endTime: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+    },
 }, {
     indexes: [
         {

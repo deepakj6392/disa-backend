@@ -809,7 +809,8 @@ exports.DEFAULT_SURVEY_QUESTIONS = [
         surveyorResponse: "",
         baseScore: 10,
         referenceImage: "",
-        surveyorImage: ""
+        surveyorImage: "",
+        skipToSurveyQuestionId: 8
     },
     {
         _id: 5,
@@ -965,7 +966,8 @@ exports.DEFAULT_SURVEY_QUESTIONS = [
         surveyorResponse: "",
         baseScore: 10,
         referenceImage: "",
-        surveyorImage: ""
+        surveyorImage: "",
+        skipToSurveyQuestionId: 17
     },
     {
         _id: 17,
@@ -978,7 +980,8 @@ exports.DEFAULT_SURVEY_QUESTIONS = [
         surveyorResponse: "",
         baseScore: 10,
         referenceImage: "",
-        surveyorImage: ""
+        surveyorImage: "",
+        skipToSurveyQuestionId: 18
     },
     {
         _id: 18,
@@ -991,7 +994,8 @@ exports.DEFAULT_SURVEY_QUESTIONS = [
         surveyorResponse: "",
         baseScore: 10,
         referenceImage: "",
-        surveyorImage: ""
+        surveyorImage: "",
+        skipToSurveyQuestionId: 19
     },
     {
         _id: 19,
