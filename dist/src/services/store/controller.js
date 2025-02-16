@@ -15,6 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.createDefaultStores = exports.deleteStoreById = exports.updateStoreById = exports.getStoreById = exports.findAllStores = exports.createStore = void 0;
 const default_1 = require("../../constants/default");
 const models_1 = __importDefault(require("../../models"));
+const retail_chain_model_1 = __importDefault(require("../../models/retail-chain.model"));
+const store_format_model_1 = __importDefault(require("../../models/store-format.model"));
 const store_model_1 = __importDefault(require("./../../models/store.model"));
 const Op = models_1.default.Sequelize.Op;
 const createStore = (req, next) => __awaiter(void 0, void 0, void 0, function* () {
@@ -48,7 +50,7 @@ const findAllStores = (req, next) => __awaiter(void 0, void 0, void 0, function*
     try {
         const search = req.query.search;
         var condition = search ? { storeName: { [Op.like]: `%${search}%` } } : null;
-        const data = yield store_model_1.default.findAll({ where: condition });
+        const data = yield store_model_1.default.findAll({ where: condition, include: [store_format_model_1.default, retail_chain_model_1.default] });
         if (data)
             return data;
     }

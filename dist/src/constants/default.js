@@ -1060,7 +1060,8 @@ exports.DEFAULT_SURVEY_QUESTIONS = [
         surveyorResponse: "",
         baseScore: 10,
         referenceImage: "",
-        surveyorImage: ""
+        surveyorImage: "",
+        skipToSurveyQuestionId: 24
     },
     {
         _id: 24,

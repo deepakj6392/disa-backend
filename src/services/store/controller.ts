@@ -1,5 +1,7 @@
 import { DEFAULT_STORES } from "../../constants/default";
 import db from "../../models";
+import RetailChain from "../../models/retail-chain.model";
+import StoreFormat from "../../models/store-format.model";
 import Store from './../../models/store.model';
 const Op = db.Sequelize.Op;
 
@@ -36,7 +38,7 @@ export const findAllStores = async (req: any, next: any) => {
     const search = req.query.search;
     var condition = search ? { storeName: { [Op.like]: `%${search}%` } } : null;
 
-    const data = await Store.findAll({ where: condition })
+    const data = await Store.findAll({ where: condition, include:[StoreFormat,RetailChain] })
     if (data)
       return data;
 
